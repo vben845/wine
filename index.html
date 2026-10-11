@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELORA | Fine Wines</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf7f0;
+      color: #29221f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      border-bottom: 1px solid #e8ded4;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: #762d3d;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: #9b5361;
+    }
+
+    .hero {
+      min-height: 540px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 65px 8%;
+      background: #f1e8dc;
+    }
+
+    .hero-text .eyebrow {
+      color: #8b4351;
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: normal;
+      line-height: 1.12;
+      margin: 22px 0;
+    }
+
+    .hero p {
+      max-width: 420px;
+      color: #71635b;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #762d3d;
+      color: white;
+      padding: 13px 25px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid #762d3d;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #55202c;
+    }
+
+    .hero-image {
+      height: 390px;
+      background:
+        linear-gradient(#00000008, #00000008),
+        url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+      border-radius: 2px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 65px 20px 35px;
+    }
+
+    .intro span {
+      color: #8b4351;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .intro h2 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      font-weight: normal;
+      margin-top: 10px;
+    }
+
+    .intro p {
+      color: #786d66;
+      margin-top: 10px;
+    }
+
+    .products {
+      padding: 25px 8% 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product {
+      background: #fffdf9;
+      padding: 16px;
+      border: 1px solid #eee5dc;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      background: #eee5dc;
+    }
+
+    .product h3 {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: normal;
+      margin-top: 15px;
+    }
+
+    .product p {
+      font-size: 13px;
+      color: #82766e;
+      margin: 5px 0 12px;
+    }
+
+    .price {
+      color: #762d3d;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .product .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .story {
+      background: #762d3d;
+      color: #fff8f0;
+      padding: 75px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .story img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .story span {
+      color: #e5c6a8;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .story h2 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 18px 0;
+    }
+
+    .story p {
+      color: #f0ded8;
+      margin-bottom: 25px;
+    }
+
+    .story .btn {
+      background: transparent;
+      border-color: #e5c6a8;
+      color: white;
+    }
+
+    .newsletter {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .newsletter h2 {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: normal;
+    }
+
+    .newsletter p {
+      color: #786d66;
+      margin: 10px 0 22px;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      max-width: 450px;
+      margin: auto;
+    }
+
+    .newsletter input {
+      min-width: 0;
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #d8c9bd;
+      background: #fffdf9;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #302522;
+      color: #f8eee4;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer .logo {
+      color: #e5c6a8;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #d3c1b5;
+    }
+
+    #message {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero,
+      .story {
+        grid-template-columns: 1fr;
+        padding: 45px 6%;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        padding: 20px 6% 55px;
+      }
+
+      .product img {
+        height: 320px;
+      }
+
+      .story img {
+        height: 260px;
+      }
+
+      .intro h2,
+      .story h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#" class="logo">VELORA</a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#collection">Collection</a>
+      <a href="#story">Our Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <span class="eyebrow">A finer kind of wine</span>
+
+        <h1>Every bottle<br>has a story.</h1>
+
+        <p>
+          Discover thoughtfully selected wines made for meaningful
+          moments, beautiful dinners, and unforgettable memories.
+        </p>
+
+        <a href="#collection" class="btn">Explore Our Wines</a>
+      </div>
+
+      <div class="hero-image" role="img"
+           aria-label="Wine bottles and glasses"></div>
+    </section>
+
+    <section class="intro" id="collection">
+      <span>THE VELORA SELECTION</span>
+      <h2>Wines worth discovering</h2>
+      <p>A little character. A little elegance. A lot of flavour.</p>
+    </section>
+
+    <section class="products">
+
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=700&q=80"
+          alt="Red wine collection">
+
+        <h3>Ruby Reserve</h3>
+        <p>Rich red blend · Italy</p>
+        <div class="price">$42.00</div>
+        <a href="#contact" class="btn">Discover Wine</a>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=700&q=80"
+          alt="Elegant wine bottle">
+
+        <h3>Golden Estate</h3>
+        <p>Fresh white wine · France</p>
+        <div class="price">$36.00</div>
+        <a href="#contact" class="btn">Discover Wine</a>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1510853675132-2e6d7a2b6d92?auto=format&fit=crop&w=700&q=80"
+          alt="Wine served in a glass">
+
+        <h3>Velvet Rosé</h3>
+        <p>Delicate rosé · Spain</p>
+        <div class="price">$29.00</div>
+        <a href="#contact" class="btn">Discover Wine</a>
+      </article>
+
+    </section>
+
+    <section class="story" id="story">
+      <img
+        src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1000&q=85"
+        alt="Vineyard at sunset">
+
+      <div>
+        <span>OUR PHILOSOPHY</span>
+        <h2>Good wine.<br>Good company.<br>Great memories.</h2>
+
+        <p>
+          At Velora, we believe wine is more than what is in the glass.
+          It is about the people we share it with, the places it takes us,
+          and the moments we remember.
+        </p>
+
+        <a href="#contact" class="btn">Get In Touch</a>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+      <h2>A note from our cellar</h2>
+      <p>Sign up for new arrivals, wine stories, and special releases.</p>
+
+      <form id="newsletterForm">
+        <input
+          type="email"
+          id="email"
+          placeholder="Your email address"
+          aria-label="Your email address"
+          required>
+
+        <button class="btn" type="submit">Join Us</button>
+      </form>
+
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">VELORA</div>
+    <p>Fine wines for life's finest moments.</p>
+    <p>&copy; 2026 Velora Wines. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("newsletterForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+
+      message.textContent =
+        "Thank you! The signup demo received " + email + ".";
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
